@@ -1,28 +1,12 @@
-@import "_partials/mixins";
-@import "_partials/vars";
-
-* {
-  box-sizing: content-box;
-  padding: 0;
-  margin: 0;
+.card-green {
+  background: rgb(20, 200, 100);
 }
-
-html, body {
-  font-size: 100%;
+.card-blue {
+  background: #1890ff;
 }
-
-.pageContainer {
-  //margin: 5px;
-  border: 1px solid #000000;
-  //padding: 10px;
+.card-gray {
+  background: #999999;
 }
-
-.dataContainer {
-  padding: 5px 10px;
-}
-
-.sidebarContainer {
-  background: $offWhite;
-  //border: 1px solid #222;
-  height: 100vh;
+.card-red {
+  background: rgb(150, 100, 100);
 }

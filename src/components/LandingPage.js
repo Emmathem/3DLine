@@ -1,18 +1,82 @@
-import React, { Component } from 'react';
-import {NavLink} from "react-router-dom";
-import logo from '../assets/images/data-img.png';
+import React, {Component} from 'react';
+import "../assets/css/custom.css";
+import "../assets/css/main.css";
+
+import { Divider, Card, Row, Col, Layout } from 'antd';
+
+import AppSideBar from "./shared/AppSideBar";
+import AppHeader from "./shared/AppHeader";
+
+const { Content } = Layout;
 
 class LandingPage extends Component {
   render() {
     return (
-     <div>
-       <div className="App landingContainer">
-         <img src={logo} alt="logo"/>
-         <NavLink to="/dashboard">View Dashboard</NavLink>
-       </div>
-     </div>
-    )
+        <Layout>
+          <AppSideBar />
+          <Layout className="site-layout">
+            <AppHeader />
+            <Content
+                className="site-layout-background"
+                style={{
+                  margin: '24px 16px',
+                  padding: 24,
+                  minHeight: 280,
+                }}
+            >
+              <Row gutter={[16, 16]}>
+                <Col span={6}>
+                  <Card bordered={false} className="card-blue">
+                    <Row>
+                      <Col><span>All Confirmed Cases</span></Col>
+                      <Col>1,000</Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col span={6}>
+                  <Card bordered={false} className="card-gray">
+                    <Row>
+                      <Col><span>All Active Cases</span></Col>
+                      <Col>900</Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col span={6}>
+                  <Card bordered={false} className="card-green">
+                    <Row>
+                    <Col><span>All Discharged Cases</span></Col>
+                    <Col>100</Col>
+                   </Row>
+                  </Card>
+                </Col>
+                <Col span={6}>
+                  <Card bordered={false} className="card-red">
+                    <Row>
+                    <Col><span>Death Recorded</span></Col>
+                    <Col>10</Col>
+                    </Row>
+                  </Card>
+                </Col>
+              </Row>
+              <Divider />
+              <Row gutter={[16, 16]}>
+                <Col span={12}>
+                  <Card title="Total Cases" size="small">
+                    <p>Card content</p>
+                  </Card>
+                </Col>
+                <Col span={12}>
+                  <Card title="Confirmed Cases" size="small">
+                    <p>Card content</p>
+                  </Card>
+                </Col>
+              </Row>
+            </Content>
+          </Layout>
+        </Layout>
+    );
   }
 }
 
 export default LandingPage;
+// ReactDOM.render(<SiderDemo />, mountNode);

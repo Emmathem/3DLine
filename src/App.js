@@ -1,25 +1,35 @@
 import React from "react";
-// import reducers from "./store/reducers";
-import Thunk from "redux-thunk";
+import 'antd/dist/antd.css';
 
 import LandingPage from "./components/LandingPage";
-import Dashboard from "./components/dashboard/Dashboard";
+import {Provider} from "react-redux";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import AppGraphDetails from "./components/AppGraphDetails";
+import {applyMiddleware, createStore} from "redux";
+import thunk from "redux-thunk";
 
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+const reducers = () => {};
+const store = createStore(reducers, {}, applyMiddleware(thunk));
 
-const reducers  = () => {};
-const store = createStore(reducers, {}, applyMiddleware(Thunk));
+const App = () => {
+  return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={LandingPage} />
+            <Route path='/app-graph-details' component={AppGraphDetails}/>
+          </Switch>
+        </BrowserRouter>
+      </Provider>
+  )
+};
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default () => (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route path='/dashboard' component={Dashboard} />
-        </Switch>
-      </BrowserRouter>
-    </Provider>
-);
+// function App() {
+//   return (
+//     <div>
+//      <LandingPage />
+//     </div>
+//   );
+// }
+
+export default App;

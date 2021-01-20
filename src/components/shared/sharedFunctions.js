@@ -27,7 +27,7 @@ class SharedFunctions extends Component {
     return (
         <div>
           <h5>Test</h5>
-          {this.rotateArray(nu, 6)}
+          {this.rotateArray(nu, 3)}
         </div>
     );
   }
