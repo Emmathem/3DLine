@@ -5,27 +5,27 @@ const tableColumns = [
   {
     title: 'State',
     dataIndex: 'state',
-    customRender: {},
+    scopedSlots: { customRender: 'state' },
   },
   {
     title: 'Confirmed Cases',
     dataIndex: 'confirmedCases',
-    customRender: {},
+    scopedSlots: { customRender: 'confirmedCases' },
   },
   {
     title: 'Active Cases',
     dataIndex: 'casesOnAdmission',
-    customRender: {},
+    scopedSlots: { customRender: 'casesOnAdmission' },
   },
   {
     title: 'Discharged',
     dataIndex: 'discharged',
-    customRender: {},
+    scopedSlots: { customRender: 'discharged' },
   },
   {
     title: 'Death',
     dataIndex: 'death',
-    customRender: {},
+    scopedSlots: { customRender: 'death' },
   },
 ];
 
@@ -46,7 +46,8 @@ const AppTableData = props => {
             rowKey={props._id}
             key={props._id}
             pagination={{ position: paginationPosition.bottom }}
-          />
+          >
+          </Table>
         </Col>
       </Row>
     </Layout>
