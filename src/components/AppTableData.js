@@ -1,19 +1,43 @@
 import React from "react";
-import { Table } from "antd";
+import { Row, Col, Table, Layout } from "antd";
 
 const tableColumns = [
-    {
-        name: 'State',
-        dataIndex: 'state',
-        customRender: {}
-    },
+  {
+    title: "State",
+    dataIndex: "state",
+    customRender: {}
+  },
+  {
+    title: "Confirmed Cases",
+    dataIndex: "confirmedCases",
+    customRender: {}
+  },
+  {
+    title: "Active Cases",
+    dataIndex: "casesOnAdmission",
+    customRender: {}
+  },
+  {
+    title: "Death",
+    dataIndex: "death",
+    customRender: {}
+  },
+  {
+    title: "Discharged",
+    dataIndex: "discharged",
+    customRender: {}
+  }
 ];
 
 const AppTableData = () => {
   return (
-    <div>
-      <Table columns={tableColumns} />
-    </div>
+    <Layout>
+      <Row>
+        <Col span={24}>
+          <Table columns={tableColumns} />
+        </Col>
+      </Row>
+    </Layout>
   );
 };
 
