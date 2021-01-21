@@ -6,17 +6,21 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint',
+    ecmaFeatures: {
+      jsx: true,
+      modules: true,
+    },
   },
   extends: [
     'prettier',
-    'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
+    'eslint-config-prettier',
+    'plugin:prettier/recommended',
+    'eslint:recommended',
+    'plugin:react/recommended',
   ],
   plugins: ['prettier'],
-  globals: {
-    $nuxt: true,
-  },
+  globals: {},
   // add your custom rules here
   rules: {
     'comma-dangle': [
