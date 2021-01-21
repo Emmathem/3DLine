@@ -13,7 +13,8 @@
 }
 
 .card-red {
-  background: rgb(150, 100, 100);
+  //background: rgb(200, 10, 10);
+  background: #FF0000;
 }
 
 // custom layout
@@ -65,6 +66,21 @@
 
 .drawerIcon {
   padding: 0 18px;
+}
+
+.order-card {
+  h2, h6 {
+    color: $white_color;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h6 {
+    font-size: 14px;
+  }
+}
+.ant-card {
+  border-radius: 4px;
 }
 
 .card__settings {
