@@ -2,3 +2,5 @@
 node_modules/
 .idea
 *.map
+# Local Netlify folder
+.netlify

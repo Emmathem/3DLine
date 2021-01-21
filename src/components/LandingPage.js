@@ -82,10 +82,8 @@ class LandingPage extends Component {
                 </Card>
               </Col>
             </Row>
-            {/* {covidData} */}
-            <Row type="flex">
-              <Col><AppTableData /></Col>
-            </Row>
+            <Divider />
+            <AppTableData />
           </Content>
         </Layout>
       </Layout>
@@ -97,4 +95,3 @@ const mapStateToProps = (state) => state.covidData;
 const stateAction = { getAllCovid19Data };
 
 export default connect(mapStateToProps, stateAction)(LandingPage);
-// ReactDOM.render(<SiderDemo />, mountNode);
