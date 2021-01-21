@@ -4,17 +4,15 @@ module.exports = {
     browser: true,
     node: true,
   },
-  parserOptions: {
-    parser: 'babel-eslint',
-    ecmaFeatures: {
-      jsx: true,
-      modules: true,
-    },
-  },
+  // parserOptions: {
+  //   parser: 'babel-eslint',
+  //   // ecmaFeatures: {
+  //   //   jsx: true,
+  //   //   modules: true,
+  //   // },
+  // },
   extends: [
     'prettier',
-    'plugin:prettier/recommended',
-    'eslint-config-prettier',
     'plugin:prettier/recommended',
     'eslint:recommended',
     'plugin:react/recommended',
@@ -23,6 +21,7 @@ module.exports = {
   globals: {},
   // add your custom rules here
   rules: {
+    'react/prop-types': 'off',
     'comma-dangle': [
       'error',
       {
