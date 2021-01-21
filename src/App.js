@@ -1,5 +1,6 @@
 import React from "react";
 import 'antd/dist/antd.css';
+import "./assets/css/main.css";
 
 import LandingPage from "./components/LandingPage";
 import {Provider} from "react-redux";
@@ -23,13 +24,5 @@ const App = () => {
       </Provider>
   )
 };
-
-// function App() {
-//   return (
-//     <div>
-//      <LandingPage />
-//     </div>
-//   );
-// }
 
 export default App;

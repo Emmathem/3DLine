@@ -1,12 +1,68 @@
+@import "_partials/vars";
+
 .card-green {
   background: rgb(20, 200, 100);
 }
+
 .card-blue {
   background: #1890ff;
 }
+
 .card-gray {
   background: #999999;
 }
+
 .card-red {
   background: rgb(150, 100, 100);
+}
+
+// custom layout
+#components-layout-demo-custom-trigger {
+  .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #1890ff;
+    }
+  }
+
+  .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 16px;
+  }
+}
+
+// .site-layout-background {
+//   margin: 24px 16px;
+//   padding: 24px;
+//   min-height: 280px;
+// }
+.header_settings {
+  margin: 24px 16px;
+  padding: 24px;
+  background: $white_color;
+}
+
+.site-layout {
+  .site-layout-background {
+    background: $white_color;
+    margin: 24px 16px;
+    padding: 24px;
+    min-height: 280px;
+  }
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 16px;
+}
+
+.drawerIcon {
+  padding: 0 18px;
 }

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import "../assets/css/custom.css";
-import "../assets/css/main.css";
 
-import { Divider, Card, Row, Col, Layout } from 'antd';
+import { Card, Row, Col, Layout } from 'antd';
 
 import AppSideBar from "./shared/AppSideBar";
 import AppHeader from "./shared/AppHeader";
@@ -58,19 +56,7 @@ class LandingPage extends Component {
                   </Card>
                 </Col>
               </Row>
-              <Divider />
-              <Row gutter={[16, 16]}>
-                <Col span={12}>
-                  <Card title="Total Cases" size="small">
-                    <p>Card content</p>
-                  </Card>
-                </Col>
-                <Col span={12}>
-                  <Card title="Confirmed Cases" size="small">
-                    <p>Card content</p>
-                  </Card>
-                </Col>
-              </Row>
+            
             </Content>
           </Layout>
         </Layout>

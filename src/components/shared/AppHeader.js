@@ -22,7 +22,7 @@ class AppHeader extends Component {
   render() {
     return (
         <div>
-          <Header className="site-layout-background drawerIcon">
+          <Header className="header_settings drawerIcon">
             {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: this.toggle,
