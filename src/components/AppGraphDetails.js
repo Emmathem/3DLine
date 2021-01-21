@@ -24,6 +24,8 @@ class AppGraphDetails extends Component {
   render() {
     const { covidData } = this.props;
     const { states } = covidData || [];
+    LOGGER('state', states);
+    LOGGER('state data', covidData);
     return (
       <Layout>
         <AppSideBar />
@@ -36,7 +38,7 @@ class AppGraphDetails extends Component {
                 <ConfirmDataGraph stateData={states} />
               </TabPane>
               <TabPane tab="Active Cases" key="2">
-                <ActiveDataGraph covidData={covidData} />
+                <ActiveDataGraph stateData={states} />
               </TabPane>
               <TabPane tab="Discharged Cases" key="3">
                 <DischargedDataGraph stateData={states} />

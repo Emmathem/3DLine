@@ -7,7 +7,7 @@ import { SERVER_REQUEST } from '../../connection/Backend';
 import { ApiEndPoints, LOGGER } from '../../config';
 
 export const getAllCovid19Data = () => async dispatch => {
-    dispatch({ type: GET_ALL_COVID_DATA });
+  dispatch({ type: GET_ALL_COVID_DATA });
   const response = await SERVER_REQUEST(ApiEndPoints.GET_ALL_DATA, 'get', null);
   LOGGER('response', response);
   if (response.status === 200) {

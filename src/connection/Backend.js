@@ -1,4 +1,4 @@
-import {APP_BASE_URL, HANDLE_ERROR, LOGGER} from '../config';
+import { APP_BASE_URL, HANDLE_ERROR, LOGGER } from '../config';
 import axios from 'axios';
 import { GET_TOKEN } from './Storage';
 

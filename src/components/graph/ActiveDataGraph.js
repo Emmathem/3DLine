@@ -3,16 +3,16 @@ import { Line } from 'react-chartjs-2';
 import { LOGGER } from '../../config';
 
 const ActiveDataGraph = props => {
-  const { covidData } = props;
+  const { stateData } = props || [];
   LOGGER('props', props);
   let stateLabel = [];
   let activeCasePerState = [];
-  for (let stateName of covidData.states) {
+  for (let stateName of stateData) {
     stateLabel.push(stateName.state);
     activeCasePerState.push(stateName.casesOnAdmission);
   }
   LOGGER('state name', stateLabel);
-  const d = {
+  const dataObject = {
     labels: stateLabel,
     datasets: [
       {
@@ -28,8 +28,7 @@ const ActiveDataGraph = props => {
   };
   return (
     <div>
-      {/*<Bar data={d} />*/}
-      <Line data={d} />
+      <Line data={dataObject} />
     </div>
   );
 };

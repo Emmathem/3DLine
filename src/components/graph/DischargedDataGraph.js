@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { LOGGER } from '../../config';
 
 const DischargedDataGraph = props => {
-  const { stateData } = props;
+  const { stateData } = props || [];
   LOGGER('props', props);
   let stateLabel = [];
   let dischargedCases = [];

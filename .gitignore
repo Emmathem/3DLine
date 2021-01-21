@@ -4,4 +4,4 @@ node_modules/
 *.map
 # Local Netlify folder
 .netlify
-.eslintcache
+#.eslintcache
