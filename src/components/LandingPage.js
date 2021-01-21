@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import AppSideBar from './shared/AppSideBar';
 import AppHeader from './shared/AppHeader';
 import AppTableData from './AppTableData';
-import { LOGGER } from '../config';
+import { formatNumber, LOGGER } from '../config';
 import { SettingOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 
@@ -45,7 +45,7 @@ class LandingPage extends Component {
                   <h6>All Sampled Cases</h6>
                   <h2>
                     <SettingOutlined className="align-left" />
-                    {covidData.totalSamplesTested}
+                    {formatNumber(covidData.totalSamplesTested)}
                   </h2>
                 </Card>
               </Col>
@@ -54,7 +54,7 @@ class LandingPage extends Component {
                   <h6>Confirmed Cases</h6>
                   <h2>
                     <SettingOutlined className="align-left" />{' '}
-                    {covidData.totalConfirmedCases}
+                    {formatNumber(covidData.totalConfirmedCases)}
                   </h2>
                 </Card>
               </Col>
@@ -63,7 +63,7 @@ class LandingPage extends Component {
                   <h6>Active Cases</h6>
                   <h2>
                     <SettingOutlined className="align-left" />{' '}
-                    {covidData.totalActiveCases}
+                    {formatNumber(covidData.totalActiveCases)}
                   </h2>
                 </Card>
               </Col>
@@ -72,7 +72,7 @@ class LandingPage extends Component {
                   <h6>Discharged Cases</h6>
                   <h2>
                     <SettingOutlined className="align-left" />{' '}
-                    {covidData.discharged}
+                    {formatNumber(covidData.discharged)}
                   </h2>
                 </Card>
               </Col>
@@ -80,7 +80,8 @@ class LandingPage extends Component {
                 <Card bordered={false} className="card-red order-card">
                   <h6>Death Recorded</h6>
                   <h2>
-                    <SettingOutlined className="align-left" /> {covidData.death}
+                    <SettingOutlined className="align-left" />{' '}
+                    {formatNumber(covidData.death)}
                   </h2>
                 </Card>
               </Col>
