@@ -4,13 +4,18 @@ module.exports = {
     browser: true,
     node: true,
   },
-  // parserOptions: {
-  //   parser: 'babel-eslint',
-  //   // ecmaFeatures: {
-  //   //   jsx: true,
-  //   //   modules: true,
-  //   // },
-  // },
+  parserOptions: {
+    parser: 'babel-eslint',
+    // ecmaFeatures: {
+    //   jsx: true,
+    //   modules: true,
+    // },
+    ecmaVersion: 7,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
   extends: [
     'prettier',
     'plugin:prettier/recommended',
@@ -22,10 +27,10 @@ module.exports = {
   // add your custom rules here
   rules: {
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
-    'import/named': 2,
-    'import/namespace': 2,
-    'import/default': 2,
-    'import/export': 2,
+    'import/named': 'off',
+    'import/namespace': 'off',
+    'import/default': 'off',
+    'import/export': 'off',
     'react/prop-types': 'off',
     'import/no-anonymous-default-export': 'off',
     'comma-dangle': [

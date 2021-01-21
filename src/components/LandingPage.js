@@ -6,6 +6,7 @@ import AppSideBar from './shared/AppSideBar';
 import AppHeader from './shared/AppHeader';
 import AppTableData from './AppTableData';
 import { LOGGER } from '../config';
+import { SettingOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 
 class LandingPage extends Component {
@@ -40,50 +41,52 @@ class LandingPage extends Component {
           <Content className="site-layout-background card__settings">
             <Row gutter={[16, 16]}>
               <Col span={6}>
-                <Card bordered={false} className="card-blue">
-                  <Row>
-                    <Col className="label__title" span={8}>
-                      <span>All Confirmed Cases</span>
-                    </Col>
-                    <Col className="count__settings" span={12}>
-                      {covidData.totalConfirmedCases}
-                    </Col>
-                  </Row>
+                <Card bordered={false} className="card-blue order-card">
+                  <h6>All Sampled Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />
+                    {covidData.totalSamplesTested}
+                  </h2>
                 </Card>
               </Col>
               <Col span={6}>
-                <Card bordered={false} className="card-gray">
-                  <Row>
-                    <Col>
-                      <span>All Active Cases</span>
-                    </Col>
-                    <Col>{covidData.totalActiveCases}</Col>
-                  </Row>
+                <Card bordered={false} className="card-blue order-card">
+                  <h6>Confirmed Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {covidData.totalConfirmedCases}
+                  </h2>
                 </Card>
               </Col>
               <Col span={6}>
-                <Card bordered={false} className="card-green">
-                  <Row>
-                    <Col>
-                      <span>All Discharged Cases</span>
-                    </Col>
-                    <Col>100</Col>
-                  </Row>
+                <Card bordered={false} className="card-gray order-card">
+                  <h6>Active Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {covidData.totalActiveCases}
+                  </h2>
                 </Card>
               </Col>
               <Col span={6}>
-                <Card bordered={false} className="card-red">
-                  <Row justify="space-around">
-                    <Col span={6}>
-                      <span>Death Recorded</span>
-                    </Col>
-                    <Col span={16}>{covidData.death}</Col>
-                  </Row>
+                <Card bordered={false} className="card-green order-card">
+                  <h6>Discharged Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {covidData.discharged}
+                  </h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card bordered={false} className="card-red order-card">
+                  <h6>Death Recorded</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" /> {covidData.death}
+                  </h2>
                 </Card>
               </Col>
             </Row>
             <Divider />
-            <AppTableData />
+            <AppTableData state={covidData.states} />
           </Content>
         </Layout>
       </Layout>
