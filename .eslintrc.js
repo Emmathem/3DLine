@@ -26,6 +26,10 @@ module.exports = {
   globals: {},
   // add your custom rules here
   rules: {
+    'no-unused-vars': [
+      'error',
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
+    ],
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
     'import/named': 'off',
     'import/namespace': 'off',
