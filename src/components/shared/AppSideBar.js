@@ -27,7 +27,7 @@ class AppSideBar extends Component {
                 <NavLink to='/app-graph-details'>Graph Detail</NavLink>
               </Menu.Item>
               <Menu.Item key="3" icon={<UploadOutlined />}>
-                nav 3
+                <NavLink to='/'>Data Table</NavLink>
               </Menu.Item>
             </Menu>
           </Sider>
