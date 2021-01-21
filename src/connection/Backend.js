@@ -1,4 +1,4 @@
-import { APP_BASE_URL, HANDLE_ERROR } from '../config';
+import {APP_BASE_URL, HANDLE_ERROR, LOGGER} from '../config';
 import axios from 'axios';
 import { GET_TOKEN } from './Storage';
 
@@ -28,8 +28,7 @@ export const SERVER_REQUEST = async (endpoint, type, body) => {
       return response;
     }
   } catch (error) {
-    console.log(`${endpoint} error`, HANDLE_ERROR(error));
-    // LOGGER(`${endpoint} error`, HANDLE_ERROR(error));
+    LOGGER('error', HANDLE_ERROR(error));
     return HANDLE_ERROR(error.message);
   }
 };

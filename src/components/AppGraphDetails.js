@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import AppSideBar from './shared/AppSideBar';
 import AppHeader from './shared/AppHeader';
-import BarChart from './shared/BarChart';
+import ActiveDataGraph from './graph/ActiveDataGraph';
 import { Tabs, Layout } from 'antd';
 import { connect } from 'react-redux';
 import { getAllCovid19Data } from '../store/actions/GetAllCovidAction';
+import ConfirmDataGraph from './graph/ConfirmDataGraph';
+import DeathDataGraph from './graph/DeathDataGraph';
+import DischargedDataGraph from './graph/DischargedDataGraph';
+import { LOGGER } from '../config';
 
 const { Content } = Layout;
 const { TabPane } = Tabs;
@@ -14,11 +18,12 @@ class AppGraphDetails extends Component {
     this.props.getAllCovid19Data();
   }
   callback(key) {
-    console.log(key);
+    LOGGER('ley', key);
   }
 
   render() {
     const { covidData } = this.props;
+    const { states } = covidData || [];
     return (
       <Layout>
         <AppSideBar />
@@ -27,17 +32,17 @@ class AppGraphDetails extends Component {
           <Content className="site-layout-background">
             <h4>Graph Section</h4>
             <Tabs defaultActiveKey="1" onChange={this.callback}>
-              <TabPane tab="Active Cases" key="1">
-                <BarChart covidData={covidData} />
+              <TabPane tab="Confirmed Cases" key="1">
+                <ConfirmDataGraph stateData={states} />
               </TabPane>
-              <TabPane tab="Confirmed Cases" key="2">
-                Confirmed Cases
+              <TabPane tab="Active Cases" key="2">
+                <ActiveDataGraph covidData={covidData} />
               </TabPane>
               <TabPane tab="Discharged Cases" key="3">
-                Discharged
+                <DischargedDataGraph stateData={states} />
               </TabPane>
               <TabPane tab="Death Cases" key="4">
-                Discharged
+                <DeathDataGraph stateData={states} />
               </TabPane>
             </Tabs>
           </Content>

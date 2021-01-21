@@ -1,5 +1,6 @@
 // A R R A Y - L I S T - R O T A T I O N
 import React, { Component } from 'react';
+import {LOGGER} from "../../config";
 
 class SharedFunctions extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class SharedFunctions extends Component {
     for (let i = 0; i < k; i++) {
       nums.unshift(nums.pop());
     }
-    console.log('reverse', nums);
+    LOGGER('stable', nums);
     return nums;
   };
   render() {
