@@ -1,10 +1,10 @@
 // A R R A Y - L I S T - R O T A T I O N
-import React, {Component} from "react";
+import React, { Component } from 'react';
 
 class SharedFunctions extends Component {
   constructor(props) {
     super(props);
-    this.rotateArray = this.rotateArray.bind(this)
+    this.rotateArray = this.rotateArray.bind(this);
   }
 
   rotateArray = (nums, k) => {
@@ -23,12 +23,12 @@ class SharedFunctions extends Component {
     return nums;
   };
   render() {
-    const nu = [2,3,4,5,6];
+    const nu = [2, 3, 4, 5, 6];
     return (
-        <div>
-          <h5>Test</h5>
-          {this.rotateArray(nu, 3)}
-        </div>
+      <div>
+        <h5>Test</h5>
+        {this.rotateArray(nu, 3)}
+      </div>
     );
   }
 }
