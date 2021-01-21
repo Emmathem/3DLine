@@ -43,11 +43,10 @@ const AppTableData = props => {
             columns={tableColumns}
             dataSource={props.state}
             bordered
-            rowKey={props._id}
+            rowKey={record => record._id}
             key={props._id}
             pagination={{ position: paginationPosition.bottom }}
-          >
-          </Table>
+          />
         </Col>
       </Row>
     </Layout>
