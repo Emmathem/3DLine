@@ -1,4 +1,4 @@
-import { APP_BASE_URL, LOGGER, HANDLE_ERROR} from "../config";
+import { APP_BASE_URL, HANDLE_ERROR} from "../config";
 import axios from "axios";
 import { GET_TOKEN } from "./Storage";
 
@@ -18,15 +18,14 @@ export const SERVER_REQUEST = async (endpoint, type, body) => {
   try {
     const response =
       type.toLowerCase() === "post"
-        ? await axios.post(`${APP_BASE_URL}`, body, { headers: GET_HEADER() })
-        : await axios.get(`${APP_BASE_URL}`, { headers: GET_HEADER() });
-
-        LOGGER(endpoint, response);
+        ? await axios.post(`${APP_BASE_URL}${endpoint}`, body, { headers: GET_HEADER() })
+        : await axios.get(`${APP_BASE_URL}${endpoint}`, { headers: GET_HEADER() });
         if (response) {
-            return response.data;
+            return response;
         }
   } catch(error) {
-      LOGGER(`${endpoint} error`, HANDLE_ERROR(error));
+    console.log(`${endpoint} error`, HANDLE_ERROR(error))
+      // LOGGER(`${endpoint} error`, HANDLE_ERROR(error));
       return HANDLE_ERROR(error.message);
   }
 };
