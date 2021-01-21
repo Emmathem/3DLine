@@ -6,6 +6,7 @@ import AppSideBar from './shared/AppSideBar';
 import AppHeader from './shared/AppHeader';
 import AppTableData from './AppTableData';
 import { LOGGER } from '../config';
+import { SettingOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 
 class LandingPage extends Component {
@@ -42,31 +43,45 @@ class LandingPage extends Component {
               <Col span={6}>
                 <Card bordered={false} className="card-blue order-card">
                   <h6>All Sampled Cases</h6>
-                  <h2>{covidData.totalSamplesTested}</h2>
+                  <h2>
+                    <SettingOutlined className="align-left" />
+                    {covidData.totalSamplesTested}
+                  </h2>
                 </Card>
               </Col>
               <Col span={6}>
                 <Card bordered={false} className="card-blue order-card">
                   <h6>Confirmed Cases</h6>
-                  <h2>{covidData.totalConfirmedCases}</h2>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {covidData.totalConfirmedCases}
+                  </h2>
                 </Card>
               </Col>
               <Col span={6}>
                 <Card bordered={false} className="card-gray order-card">
                   <h6>Active Cases</h6>
-                  <h2>{covidData.totalActiveCases}</h2>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {covidData.totalActiveCases}
+                  </h2>
                 </Card>
               </Col>
               <Col span={6}>
                 <Card bordered={false} className="card-green order-card">
                   <h6>Discharged Cases</h6>
-                  <h2>{covidData.discharged}</h2>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {covidData.discharged}
+                  </h2>
                 </Card>
               </Col>
               <Col span={6}>
                 <Card bordered={false} className="card-red order-card">
                   <h6>Death Recorded</h6>
-                  <h2>{covidData.death}</h2>
+                  <h2>
+                    <SettingOutlined className="align-left" /> {covidData.death}
+                  </h2>
                 </Card>
               </Col>
             </Row>

@@ -71,9 +71,11 @@
 .order-card {
   h2, h6 {
     color: $white_color;
+    font-weight: bold;
   }
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+    text-align: right;
   }
   h6 {
     font-size: 14px;
@@ -84,6 +86,9 @@
 }
 
 .card__settings {
+  .ant-card-body {
+    padding: 15px;
+  }
   .label__title {
     color: $white_color;
     font-weight: 400;
@@ -95,5 +100,11 @@
   .count__settings {
     font-size: 3em;
     font-weight: bolder;
+  }
+  .anticon {
+    line-height: 2 !important;
+  }
+  .align-left {
+    float: left;
   }
 }

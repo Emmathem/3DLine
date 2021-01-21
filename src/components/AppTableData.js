@@ -18,13 +18,13 @@ const tableColumns = [
     customRender: {},
   },
   {
-    title: 'Death',
-    dataIndex: 'death',
+    title: 'Discharged',
+    dataIndex: 'discharged',
     customRender: {},
   },
   {
-    title: 'Discharged',
-    dataIndex: 'discharged',
+    title: 'Death',
+    dataIndex: 'death',
     customRender: {},
   },
 ];
