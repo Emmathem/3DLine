@@ -1,24 +1,34 @@
 import React from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+import { LOGGER } from '../../config';
 
-const BarChart = () => {
+const BarChart = props => {
+  const { covidData } = props;
+  LOGGER('data', covidData);
+  let stateLabel = [];
+  let activeCasePerState = [];
+  for (let stateName of covidData.states) {
+    stateLabel.push(stateName.state);
+    activeCasePerState.push(stateName.casesOnAdmission);
+  }
+  LOGGER('state name', stateLabel);
   const d = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    labels: stateLabel,
     datasets: [
       {
-        label: 'Rainfall',
+        label: 'Covid-19 Data',
         fill: false,
         lineTension: 0.5,
         backgroundColor: 'rgba(75,192,192,1)',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
-        data: [65, 59, 80, 81, 56],
+        data: activeCasePerState,
       },
     ],
   };
   return (
     <div>
-      <Bar data={d} />
+      {/*<Bar data={d} />*/}
       <Line data={d} />
     </div>
   );

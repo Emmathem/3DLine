@@ -2,11 +2,23 @@ import React, { Component } from 'react';
 import AppSideBar from './shared/AppSideBar';
 import AppHeader from './shared/AppHeader';
 import BarChart from './shared/BarChart';
-import { Divider, Card, Row, Col, Layout } from 'antd';
+import { Tabs, Layout } from 'antd';
+import { connect } from 'react-redux';
+import { getAllCovid19Data } from '../store/actions/GetAllCovidAction';
 
 const { Content } = Layout;
+const { TabPane } = Tabs;
+
 class AppGraphDetails extends Component {
+  componentDidMount() {
+    this.props.getAllCovid19Data();
+  }
+  callback(key) {
+    console.log(key);
+  }
+
   render() {
+    const { covidData } = this.props;
     return (
       <Layout>
         <AppSideBar />
@@ -14,19 +26,20 @@ class AppGraphDetails extends Component {
           <AppHeader />
           <Content className="site-layout-background">
             <h4>Graph Section</h4>
-            <Divider />
-            <Row gutter={[16, 16]}>
-              <Col span={12}>
-                <Card title="Total Cases" size="small">
-                  <BarChart />
-                </Card>
-              </Col>
-              <Col span={12}>
-                <Card title="Confirmed Cases" size="small">
-                  <p>Card content</p>
-                </Card>
-              </Col>
-            </Row>
+            <Tabs defaultActiveKey="1" onChange={this.callback}>
+              <TabPane tab="Active Cases" key="1">
+                <BarChart covidData={covidData} />
+              </TabPane>
+              <TabPane tab="Confirmed Cases" key="2">
+                Confirmed Cases
+              </TabPane>
+              <TabPane tab="Discharged Cases" key="3">
+                Discharged
+              </TabPane>
+              <TabPane tab="Death Cases" key="4">
+                Discharged
+              </TabPane>
+            </Tabs>
           </Content>
         </Layout>
       </Layout>
@@ -34,4 +47,7 @@ class AppGraphDetails extends Component {
   }
 }
 
-export default AppGraphDetails;
+const mapStateToProps = state => state.covidData;
+const stateAction = { getAllCovid19Data };
+
+export default connect(mapStateToProps, stateAction)(AppGraphDetails);
