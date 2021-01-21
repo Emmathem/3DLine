@@ -1,12 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
 
-import {Layout} from 'antd';
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-} from '@ant-design/icons';
+import { Layout } from 'antd';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
-const {Header} = Layout;
+const { Header } = Layout;
 
 class AppHeader extends Component {
   state = {
@@ -21,15 +18,18 @@ class AppHeader extends Component {
 
   render() {
     return (
-        <div>
-          <Header className="header_settings drawerIcon">
-            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+      <div>
+        <Header className="header_settings drawerIcon">
+          {React.createElement(
+            this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+            {
               className: 'trigger',
               onClick: this.toggle,
-            })}
-          </Header>
-        </div>
-    )
+            }
+          )}
+        </Header>
+      </div>
+    );
   }
 }
 

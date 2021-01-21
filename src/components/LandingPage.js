@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { getAllCovid19Data } from "../store/actions/GetAllCovidAction";
-import { Card, Row, Col, Layout } from "antd";
-import { connect } from "react-redux";
-import AppSideBar from "./shared/AppSideBar";
-import AppHeader from "./shared/AppHeader";
-import AppTableData from "./AppTableData";
-import { LOGGER } from "../config";
+import React, { Component } from 'react';
+import { getAllCovid19Data } from '../store/actions/GetAllCovidAction';
+import { Divider, Card, Row, Col, Layout } from 'antd';
+import { connect } from 'react-redux';
+import AppSideBar from './shared/AppSideBar';
+import AppHeader from './shared/AppHeader';
+import AppTableData from './AppTableData';
+import { LOGGER } from '../config';
 const { Content } = Layout;
 
 class LandingPage extends Component {
@@ -17,7 +17,7 @@ class LandingPage extends Component {
   //   };
   // }
   componentDidMount() {
-    LOGGER("props", this.props);
+    LOGGER('props', this.props);
     this.loadCovidData();
   }
 
@@ -91,7 +91,7 @@ class LandingPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => state.covidData;
+const mapStateToProps = state => state.covidData;
 const stateAction = { getAllCovid19Data };
 
 export default connect(mapStateToProps, stateAction)(LandingPage);

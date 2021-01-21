@@ -1,13 +1,13 @@
 import {
   GET_ALL_COVID_DATA_SUCCESS,
   GET_ALL_COVID_DATA_FAILED,
-} from "../Constants";
-import { SERVER_REQUEST } from "../../connection/Backend";
-import { ApiEndPoints } from "../../config";
+} from '../Constants';
+import { SERVER_REQUEST } from '../../connection/Backend';
+import { ApiEndPoints } from '../../config';
 
-export const getAllCovid19Data = () => async (dispatch) => {
-//   dispatch({ type: GET_ALL_COVID_DATA });
-  const response = await SERVER_REQUEST(ApiEndPoints.GET_ALL_DATA, "get", null);
+export const getAllCovid19Data = () => async dispatch => {
+  //   dispatch({ type: GET_ALL_COVID_DATA });
+  const response = await SERVER_REQUEST(ApiEndPoints.GET_ALL_DATA, 'get', null);
   console.log('RESPONSE', response);
   if (response.status === 200) {
     console.log('RESPONSE here', response.data);
