@@ -6,7 +6,7 @@ export const ApiEndPoints = {
 
 // eslint-disable-next-line no-unused-vars
 export const LOGGER = (key, value) => {
-  // console.log(key.toUpperCase(), value);
+  console.log(key.toUpperCase(), value);
 };
 
 export const HANDLE_ERROR = errorMessage => {

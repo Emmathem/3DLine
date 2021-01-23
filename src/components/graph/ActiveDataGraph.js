@@ -4,10 +4,10 @@ import { LOGGER } from '../../config';
 
 const ActiveDataGraph = props => {
   const { stateData } = props || [];
-  LOGGER('props', props);
+  const finalStateData = stateData !== undefined ? stateData : [];
   let stateLabel = [];
   let activeCasePerState = [];
-  for (let stateName of stateData) {
+  for (let stateName of finalStateData) {
     stateLabel.push(stateName.state);
     activeCasePerState.push(stateName.casesOnAdmission);
   }
