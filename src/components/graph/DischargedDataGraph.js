@@ -4,10 +4,11 @@ import { LOGGER } from '../../config';
 
 const DischargedDataGraph = props => {
   const { stateData } = props || [];
+  const finalStateData = stateData !== undefined ? stateData : [];
   LOGGER('props', props);
   let stateLabel = [];
   let dischargedCases = [];
-  for (let stateName of stateData) {
+  for (let stateName of finalStateData) {
     stateLabel.push(stateName.state);
     dischargedCases.push(stateName.discharged);
   }
@@ -25,7 +26,9 @@ const DischargedDataGraph = props => {
       },
     ],
   };
-  return (
+  return finalStateData.length <= 0 ? (
+    <div>Details not available</div>
+  ) : (
     <div>
       <Line data={dataObject} />
     </div>

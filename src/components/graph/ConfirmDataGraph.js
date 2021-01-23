@@ -4,10 +4,11 @@ import { LOGGER } from '../../config';
 
 const ConfirmDataGraph = props => {
   const { stateData } = props || [];
-  LOGGER('props', props);
+  const finalStateData = stateData !== undefined ? stateData : [];
+  LOGGER('props', finalStateData);
   let stateLabel = [];
   let confirmedCases = [];
-  for (let stateName of stateData) {
+  for (let stateName of finalStateData) {
     stateLabel.push(stateName.state);
     confirmedCases.push(stateName.confirmedCases);
   }

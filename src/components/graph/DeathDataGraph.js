@@ -4,10 +4,11 @@ import { LOGGER } from '../../config';
 
 const DeathDataGraph = props => {
   const { stateData } = props || [];
+  const finalStateData = stateData !== undefined ? stateData : [];
   LOGGER('props', props);
   let stateLabel = [];
   let deathCases = [];
-  for (let stateName of stateData) {
+  for (let stateName of finalStateData) {
     stateLabel.push(stateName.state);
     deathCases.push(stateName.death);
   }
