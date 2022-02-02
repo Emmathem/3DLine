@@ -39,10 +39,49 @@
 
 .rightNav {
   button {
-    background: #e74747;
-    border-color: #e74747;
+    //background: #e74747;
+    //border-color: #e74747;
     color: #fff;
     border-radius: 4px;
     height: 40px;
+  }
+}
+
+//content styles
+
+.contentdetails {
+  margin-top: 4rem;
+  //border-top: 1px solid pink;
+  transition: ease all 0.5s;
+  .inner-details {
+    padding-top: 5rem;
+    h3 {
+      font-size: 4.4rem;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .btn {
+      height: 50px;
+      border-radius: 4px;
+      //padding: 10px 1.4rem;
+      display: flex;
+      align-items: center;
+      //font-weight: bold;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .reportbtn {
+      margin-right: 13px;
+    }
+  }
+  .inner-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      margin: auto;
+      object-fit: cover;
+      width: 80%;
+    }
   }
 }

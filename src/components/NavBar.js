@@ -23,7 +23,7 @@ const NavBar = () => {
       </nav>
 
       <div className="rightNav">
-        <Button>Create Account</Button>
+        <Button type="primary">Create Account</Button>
       </div>
     </header>
   );

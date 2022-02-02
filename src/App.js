@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './assets/css/main.css';
 
 import HomeLandingPage from './components/home/HomeLandingPage';
-import LandingPage from './components/LandingPage';
+import ReportPage from './components/ReportPage';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppGraphDetails from './components/AppGraphDetails';
@@ -19,7 +19,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           {/* <Transition slide="slide up"> */}
-          <Route exact path="/l" component={LandingPage} />
+          <Route exact path="/reports" component={ReportPage} />
           <Route path="/" exact component={HomeLandingPage} />
           <Route path="/app-graph-details" component={AppGraphDetails} />
           {/* </Transition> */}

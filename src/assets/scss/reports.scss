@@ -1,0 +1,28 @@
+.layout {
+  display: flex;
+}
+
+aside {
+  max-width: 250px;
+  width: 250px;
+  background: rgb(2,0,36);
+  background: linear-gradient(256deg, rgba(2,0,36,1) 0%, rgba(1,1,48,1) 35%, rgba(9,41,47,1) 100%);
+  height: 100vh;
+  //position: absolute;
+  padding: 1rem;
+  .aside-header {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    span {
+      color: lightgoldenrodyellow;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+main {
+  position: relative;
+  margin: 2rem;
+}
