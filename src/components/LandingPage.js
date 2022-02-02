@@ -23,10 +23,6 @@ class LandingPage extends Component {
   }
 
   loadCovidData() {
-    // const pathParam = this.props.match.params.name;
-    // const designerSplit = pathParam.split('-');
-    // const designerId = designerSplit[designerSplit.length - 1];
-    // const body = {page: this.props.page, size: this.props.size};
     this.props.getAllCovid19Data();
   }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './assets/css/main.css';
 
+import HomeLandingPage from './components/home/HomeLandingPage';
 import LandingPage from './components/LandingPage';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -18,7 +19,8 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           {/* <Transition slide="slide up"> */}
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/l" component={LandingPage} />
+          <Route path="/" exact component={HomeLandingPage} />
           <Route path="/app-graph-details" component={AppGraphDetails} />
           {/* </Transition> */}
         </Switch>

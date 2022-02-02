@@ -1,0 +1,44 @@
+.landing {
+  margin: 0;
+  padding: 0;
+  //background: rgb(0,0,10);
+  background: rgb(2,0,36);
+  background: linear-gradient(256deg, rgba(2,0,36,1) 0%, rgba(1,1,48,1) 35%, rgba(9,41,47,1) 100%);
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  transition: ease all 0.5s;
+  &__inner {
+    padding: 3rem 6rem;
+    margin: auto;
+    border: 1px solid pink;
+    transition: ease all 0.5s;
+  }
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__logo {
+    //flex: 1;
+  }
+}
+.nav {
+  display: flex;
+  > div {
+    padding: 10px 15px;
+    cursor: pointer;
+    span {
+      color: lightgoldenrodyellow;
+      font-weight: bold;
+    }
+  }
+}
+
+.rightNav {
+  button {
+    background: #e74747;
+    border-color: #e74747;
+    color: #fff;
+  }
+}
