@@ -11,7 +11,7 @@
   &__inner {
     padding: 3rem 6rem;
     margin: auto;
-    border: 1px solid pink;
+    //border: 1px solid pink;
     transition: ease all 0.5s;
   }
 }
@@ -21,13 +21,15 @@
   justify-content: space-between;
   &__logo {
     //flex: 1;
+    cursor: pointer;
   }
 }
 .nav {
   display: flex;
   > div {
-    padding: 10px 15px;
+    padding: 10px 2rem;
     cursor: pointer;
+    transition: ease all 0.5s;
     span {
       color: lightgoldenrodyellow;
       font-weight: bold;
@@ -40,5 +42,7 @@
     background: #e74747;
     border-color: #e74747;
     color: #fff;
+    border-radius: 4px;
+    height: 40px;
   }
 }
