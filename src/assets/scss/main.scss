@@ -108,3 +108,12 @@
     float: left;
   }
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 70%;
+  margin: 8rem auto;
+}

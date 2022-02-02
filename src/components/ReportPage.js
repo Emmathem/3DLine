@@ -1,118 +1,95 @@
-import React from 'react';
-// import { getAllCovid19Data } from '../store/actions/GetAllCovidAction';
-// import { Divider, Card, Row, Col, Layout } from 'antd';
-// import { connect } from 'react-redux';
-// import AppSideBar from './shared/AppSideBar';
-// import AppHeader from './shared/AppHeader';
-// import AppTableData from './AppTableData';
-// import { formatNumber, LOGGER } from '../config';
-// import { SettingOutlined } from '@ant-design/icons';
-// const { Content } = Layout;
-import '../assets/css/reports.css';
-import { HomeOutlined } from '@ant-design/icons';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { getAllCovid19Data } from '../store/actions/GetAllCovidAction';
+import { Card, Row, Col } from 'antd';
+import { connect } from 'react-redux';
+import AppTableData from './AppTableData';
+import { formatNumber, LOGGER } from '../config';
+import { SettingOutlined } from '@ant-design/icons';
+import ReportLayout from './ReportLayout';
+import AppLoader from './AppLoader';
 
-// class LandingPage extends Component {
-//   // constructor(props) {
-//   //   super(props);
-//
-//   //   this.state = {
-//   //     covidData: {},
-//   //   };
-//   // }
-//   componentDidMount() {
-//     LOGGER('props', this.props);
-//     this.loadCovidData();
-//   }
-//
-//   loadCovidData() {
-//     this.props.getAllCovid19Data();
-//   }
-//
-//   render() {
-//     const { covidData } = this.props;
-//     return (
-//       <Layout>
-//         <AppSideBar />
-//         <Layout className="site-layout">
-//           <AppHeader />
-//
-//           <Content className="site-layout-background card__settings">
-//             <Row gutter={[16, 16]}>
-//               <Col span={6}>
-//                 <Card bordered={false} className="card-blue order-card">
-//                   <h6>All Sampled Cases</h6>
-//                   <h2>
-//                     <SettingOutlined className="align-left" />
-//                     {formatNumber(covidData.totalSamplesTested)}
-//                   </h2>
-//                 </Card>
-//               </Col>
-//               <Col span={6}>
-//                 <Card bordered={false} className="card-blue order-card">
-//                   <h6>Confirmed Cases</h6>
-//                   <h2>
-//                     <SettingOutlined className="align-left" />{' '}
-//                     {formatNumber(covidData.totalConfirmedCases)}
-//                   </h2>
-//                 </Card>
-//               </Col>
-//               <Col span={6}>
-//                 <Card bordered={false} className="card-gray order-card">
-//                   <h6>Active Cases</h6>
-//                   <h2>
-//                     <SettingOutlined className="align-left" />{' '}
-//                     {formatNumber(covidData.totalActiveCases)}
-//                   </h2>
-//                 </Card>
-//               </Col>
-//               <Col span={6}>
-//                 <Card bordered={false} className="card-green order-card">
-//                   <h6>Discharged Cases</h6>
-//                   <h2>
-//                     <SettingOutlined className="align-left" />{' '}
-//                     {formatNumber(covidData.discharged)}
-//                   </h2>
-//                 </Card>
-//               </Col>
-//               <Col span={6}>
-//                 <Card bordered={false} className="card-red order-card">
-//                   <h6>Death Recorded</h6>
-//                   <h2>
-//                     <SettingOutlined className="align-left" />{' '}
-//                     {formatNumber(covidData.death)}
-//                   </h2>
-//                 </Card>
-//               </Col>
-//             </Row>
-//             <Divider />
-//             <AppTableData state={covidData.states} />
-//           </Content>
-//         </Layout>
-//       </Layout>
-//     );
-//   }
-// }
-//
-// const mapStateToProps = state => state.covidData;
-// const stateAction = { getAllCovid19Data };
-//
-// export default connect(mapStateToProps, stateAction)(LandingPage);
+const ReportPage = props => {
+  const { getAllCovid19Data, covidData, loading } = props;
+  LOGGER('vv', covidData);
+  useEffect(() => {
+    const getCovidData = async () => {
+      try {
+        await getAllCovid19Data();
+      } catch (e) {
+        LOGGER('e', e);
+      }
+    };
+    getCovidData();
+  }, []);
 
-const ReportPage = () => {
-  const history = useHistory();
   return (
     <>
-      <div className="layout">
-        <aside>
-          <div className="aside-header" onClick={() => history.push('/')}>
-            <HomeOutlined />
+      <ReportLayout pageTitle="Covid-19 Report Data">
+        {loading ? (
+          <AppLoader loadingText="Fetching record" size="large" />
+        ) : (
+          <div style={{ marginTop: '2rem' }}>
+            <Row gutter={[16, 16]}>
+              <Col span={6}>
+                <Card bordered={false} className="card-blue order-card">
+                  <h6>All Sampled Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />
+                    {formatNumber(covidData.totalSamplesTested)}
+                  </h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card bordered={false} className="card-blue order-card">
+                  <h6>Confirmed Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {formatNumber(covidData.totalConfirmedCases)}
+                  </h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card bordered={false} className="card-gray order-card">
+                  <h6>Active Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {formatNumber(covidData.totalActiveCases)}
+                  </h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card bordered={false} className="card-green order-card">
+                  <h6>Discharged Cases</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {formatNumber(covidData.discharged)}
+                  </h2>
+                </Card>
+              </Col>
+              <Col span={6}>
+                <Card bordered={false} className="card-red order-card">
+                  <h6>Death Recorded</h6>
+                  <h2>
+                    <SettingOutlined className="align-left" />{' '}
+                    {formatNumber(covidData.death)}
+                  </h2>
+                </Card>
+              </Col>
+            </Row>
+
+            <AppTableData />
           </div>
-        </aside>
-        <main>details</main>
-      </div>
+        )}
+      </ReportLayout>
     </>
   );
 };
 
-export default ReportPage;
+const mapStateToProps = state => {
+  return {
+    covidData: state.covidData,
+    loading: state.covidData.loading,
+  };
+};
+
+export default connect(mapStateToProps, { getAllCovid19Data })(ReportPage);

@@ -10,7 +10,7 @@ module.exports = {
     //   jsx: true,
     //   modules: true,
     // },
-    ecmaVersion: 7,
+    ecmaVersion: 11,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,

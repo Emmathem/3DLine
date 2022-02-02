@@ -21,7 +21,7 @@ const App = () => {
           {/* <Transition slide="slide up"> */}
           <Route exact path="/reports" component={ReportPage} />
           <Route path="/" exact component={HomeLandingPage} />
-          <Route path="/app-graph-details" component={AppGraphDetails} />
+          <Route path="/reports/graph-details" component={AppGraphDetails} />
           {/* </Transition> */}
         </Switch>
       </BrowserRouter>
