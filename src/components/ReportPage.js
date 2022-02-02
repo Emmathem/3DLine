@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
-import { getAllCovid19Data } from '../store/actions/GetAllCovidAction';
-import { Card, Row, Col } from 'antd';
+import React, { useEffect, useState } from 'react';
+import {
+  getAllCovid19Data,
+  GetStatesByCountry2,
+} from '../store/actions/GetAllCovidAction';
+import { Card, Row, Col, notification } from 'antd';
 import { connect } from 'react-redux';
 import AppTableData from './AppTableData';
 import { formatNumber, LOGGER } from '../config';
@@ -9,17 +12,43 @@ import ReportLayout from './ReportLayout';
 import AppLoader from './AppLoader';
 
 const ReportPage = props => {
-  const { getAllCovid19Data, covidData, loading } = props;
-  LOGGER('vv', covidData);
+  const {
+    getAllCovid19Data,
+    GetStatesByCountry2,
+    covidData,
+    countryStates,
+  } = props;
+  const [loading, setLoading] = useState(false);
+  LOGGER('vv', covidData.covidData);
   useEffect(() => {
     const getCovidData = async () => {
       try {
+        setLoading(true);
         await getAllCovid19Data();
+        setLoading(false);
+      } catch (e) {
+        LOGGER('e', e);
+        setLoading(false);
+      }
+    };
+    getCovidData();
+  }, []);
+
+  useEffect(() => {
+    const getStates = async () => {
+      try {
+        const res = await GetStatesByCountry2('Nigeria');
+        if (!res.success) {
+          notification.error({
+            type: 'error',
+            message: res.message,
+          });
+        }
       } catch (e) {
         LOGGER('e', e);
       }
     };
-    getCovidData();
+    getStates();
   }, []);
 
   return (
@@ -77,7 +106,10 @@ const ReportPage = props => {
               </Col>
             </Row>
 
-            <AppTableData />
+            <AppTableData
+              data={covidData.states}
+              countryStates={countryStates}
+            />
           </div>
         )}
       </ReportLayout>
@@ -87,9 +119,13 @@ const ReportPage = props => {
 
 const mapStateToProps = state => {
   return {
-    covidData: state.covidData,
+    covidData: state.covidData.covidData,
     loading: state.covidData.loading,
+    countryStates: state.covidData.stateData,
   };
 };
 
-export default connect(mapStateToProps, { getAllCovid19Data })(ReportPage);
+export default connect(mapStateToProps, {
+  getAllCovid19Data,
+  GetStatesByCountry2,
+})(ReportPage);
