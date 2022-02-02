@@ -26,17 +26,21 @@ module.exports = {
   globals: {},
   // add your custom rules here
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'no-unused-vars': [
       'error',
       { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
     ],
-    'import/no-unresolved': [2, { commonjs: true, amd: true }],
+    'import/no-unresolved': [0, { commonjs: false, amd: false }],
     'import/named': 'off',
     'import/namespace': 'off',
     'import/default': 'off',
     'import/export': 'off',
     'react/prop-types': 'off',
+    'react/no-unescaped-entities': 'off',
+    'react/display-name': 'off',
     'import/no-anonymous-default-export': 'off',
+    'import/prefer-default-export': 'off',
     'comma-dangle': [
       'error',
       {
@@ -47,5 +51,11 @@ module.exports = {
         objects: 'always-multiline',
       },
     ],
+    'jsx-a11y/href-no-hash': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      0,
+      { components: ['Link', 'a'], aspects: ['invalidHref'] },
+    ],
+    'import/order': 'off',
   },
 };

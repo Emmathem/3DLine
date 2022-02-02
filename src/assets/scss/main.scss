@@ -78,7 +78,7 @@
     text-align: right;
   }
   h6 {
-    font-size: 14px;
+    font-size: 1.2rem;
   }
 }
 .ant-card {
@@ -101,11 +101,10 @@
     font-size: 3em;
     font-weight: bolder;
   }
-  .anticon {
-    line-height: 2 !important;
-  }
-  .align-left {
-    float: left;
+  h2 {
+    display: flex;
+    justify-content: space-between;
+    //padding: 15px 0;
   }
 }
 

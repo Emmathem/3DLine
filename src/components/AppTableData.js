@@ -1,35 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Table, Select } from 'antd';
+import { formatNumber } from '../config';
 const { Option } = Select;
-
-const tableColumns = [
-  {
-    title: 'State',
-    dataIndex: 'state',
-  },
-  {
-    title: 'Confirmed Cases',
-    dataIndex: 'confirmedCases',
-  },
-  {
-    title: 'Active Cases',
-    dataIndex: 'casesOnAdmission',
-  },
-  {
-    title: 'Discharged',
-    dataIndex: 'discharged',
-  },
-  {
-    title: 'Death',
-    dataIndex: 'death',
-  },
-];
 
 const AppTableData = ({ data, countryStates }) => {
   const paginationPosition = {
     top: 'topLeft',
     bottom: 'bottomRight',
+  };
+  // const [value, setValue] = useState(null);
+  const [filterValue, setFilteValues] = useState([]);
+
+  useEffect(() => {
+    setFilteValues(data);
+  }, []);
+
+  const tableColumns = [
+    {
+      title: 'State',
+      dataIndex: 'state',
+    },
+    {
+      title: 'Confirmed Cases',
+      dataIndex: 'confirmedCases',
+      render: (_text, record) => <>{formatNumber(record.confirmedCases)}</>,
+    },
+    {
+      title: 'Active Cases',
+      dataIndex: 'casesOnAdmission',
+      render: (_text, record) => <>{formatNumber(record.casesOnAdmission)}</>,
+    },
+    {
+      title: 'Discharged',
+      dataIndex: 'discharged',
+      render: (_text, record) => <>{formatNumber(record.discharged)}</>,
+    },
+    {
+      title: 'Death',
+      dataIndex: 'death',
+      render: (_text, record) => <>{formatNumber(record.death)}</>,
+    },
+  ];
+  const filterRecord = value => {
+    if (value === undefined) {
+      setFilteValues(data);
+      return;
+    }
+    const res = data.filter(res => res.state === value.split(' ')[0]);
+    setFilteValues(res);
   };
 
   return (
@@ -41,6 +60,8 @@ const AppTableData = ({ data, countryStates }) => {
             size="large"
             placeholder="Filter by state"
             showSearch
+            allowClear
+            onChange={value => filterRecord(value)}
           >
             {countryStates &&
               countryStates.states.map((state, index) => (
@@ -55,7 +76,7 @@ const AppTableData = ({ data, countryStates }) => {
         <Col span={24}>
           <Table
             columns={tableColumns}
-            dataSource={data}
+            dataSource={filterValue}
             bordered
             rowKey={record => record._id}
             key={record => record._id}
@@ -69,6 +90,7 @@ const AppTableData = ({ data, countryStates }) => {
 
 AppTableData.propTypes = {
   data: PropTypes.array.isRequired,
+  // countryStates: PropTypes.array,
 };
 
 export default AppTableData;
