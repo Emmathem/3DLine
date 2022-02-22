@@ -1,0 +1,454 @@
+@import "./_partials/vars";
+@import "./_partials/mixins";
+/*
+ * Login && Dashboard Styles
+ * 04/05/2021
+*/
+
+.login {
+  background-color: $dashBgColor;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  transition: ease all 0.5s;
+
+  &__container {
+    width: 100%;
+    margin: auto;
+
+    .ant-card {
+      background-color: transparent;
+
+    }
+
+    .ant-card-body {
+      padding: 0;
+    }
+  }
+
+  &__inner {
+    background-color: $dashMain;
+    border-radius: 5px;
+    transition: ease all 0.5s;
+    // box-shadow: 0 2px 10px $black-color;
+    padding: 4rem 30px;
+
+    h4 {
+      display: flex;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: lighter;
+      letter-spacing: 2px;
+      color: $white-color;
+      margin-bottom: 15px;
+    }
+
+    .ant-btn-primary {
+      background: $moverYellow;
+      border-color: $moverYellow;
+    }
+
+    .error {
+      color: $moverRed;
+    }
+  }
+
+  &__notice {
+    display: flex;
+    justify-content: center;
+    color: $white-color;
+    text-align: center;
+    font-weight: lighter;
+  }
+
+  .form-group {
+    @include formGroup(26px);
+  }
+}
+
+.dheader {
+  display: flex;
+  // flex-wrap: wrap;
+  background: $dashMain;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  padding: 5px;
+  z-index: 1;
+
+  &__col {
+    flex: 1;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    cursor: pointer;
+    margin-left: 4rem;
+
+    img {
+      object-fit: contain;
+      width: 45px;
+      height: 100%;
+      margin-right: 2px;
+    }
+
+    h3 {
+      font-weight: 800;
+      font-size: 20px;
+      color: $white-color;
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 3rem 0 0;
+    transition: ease all 0.5s;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    li {
+      padding: 0 10px;
+      color: $moverYellow;
+      cursor: pointer;
+    }
+  }
+}
+
+//Sidebar (aside)
+.sidebar {
+  // display: flex;
+  // justify-content: center;
+  background: $dashMain;
+  max-width: 60px;
+  height: 100vh;
+  padding: 10px;
+  z-index: 1;
+  position: fixed;
+  transition: ease all 0.5s;
+
+  &__lockIcon {
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+    margin: 8px 0 0 0;
+    justify-content: center;
+    cursor: pointer;
+    color: $white-color;
+
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0 0 0;
+    transition: ease all 0.5s;
+
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+
+    li a {
+      color: $iconColor;
+      padding-bottom: 2.2rem;
+      display: flex;
+      transition: ease all 0.5s;
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    transition: ease all 0.5s;
+
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+
+    li,
+    a {
+      cursor: pointer;
+      color: $iconColor;
+      display: flex;
+      padding: 10px 0;
+    }
+  }
+}
+
+main {
+  position: relative;
+  width: 100%;
+  margin: 75px 15px 15px 65px;
+  transition: ease all 0.5s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  background-color: $dashBgColor;
+  height: 100%;
+}
+
+// graph and dashboard details
+.cardbg {
+  background-color: $dashMain;
+  border-radius: 4px;
+  width: 100%;
+  margin: 8px 0;
+  padding: 15px;
+  transition: ease all 0.5s;
+
+  &__header {
+    padding: 10px 0;
+
+    h1 {
+      font-size: 1.4rem;
+      color: $white-color;
+      font-weight: 700;
+    }
+  }
+}
+
+.dashgraph {
+  height: auto;
+
+  &__header {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  &__progressdetails {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    >div {
+      align-items: center;
+
+      h3 {
+        color: $white-color;
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      h2 {
+        color: $white-color;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      &:nth-child(3) {
+        h3 {
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  &__range {
+    position: relative;
+    display: flex;
+
+    .ant-btn {
+      margin-left: 10px;
+      background-color: $black-color;
+      border-radius: 25px;
+      border-color: $black-color;
+      height: 40px;
+      padding: 5px 20px;
+    }
+
+    .ant-picker {
+      background-color: $dashBgColor;
+      border-radius: 25px;
+      color: $white-color;
+      border: none;
+      padding: 5px 20px;
+    }
+
+    .ant-picker-input>input,
+    .ant-picker-suffix,
+    .ant-picker-clear {
+      color: $white-color;
+    }
+    .ant-picker-clear {
+      background: transparent;
+    }
+    >div {
+      background-color: $dashBgColor;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      .ant-col-1 {
+        display: flex;
+        align-items: center;
+      }
+      .dash {
+        display: flex;
+        align-items: center;
+        color: $white-color;
+      }
+    }
+  }
+
+  &__graph {
+    // height: 300px;
+    margin-top: 20px;
+    transition: ease all 0.5s;
+    h4 {
+      color: $white-color;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+.orders {
+  &__header {
+    display: flex;
+    align-items: center;
+    color: $white-color;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    transition: ease all 0.5s;
+    h2 {
+      color: $white-color;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+    .more {
+      cursor: pointer;
+    }
+  }
+  &__table {
+    .ant-table {
+      background: transparent;
+    }
+    table {
+      thead {
+        background-color: $dashBgColor;
+      }
+      tr {
+        &:nth-child(even) {
+          background-color: $dashBgColor;
+        }
+      }
+    }
+    .ant-table-thead > tr > th {
+      background: transparent;
+      color: $white-color;
+      font-size: 14px;
+      border-bottom: none;
+    }
+    .ant-table-tbody > tr > td {
+      border-bottom: none;
+      color: $white-color;
+    }
+    .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+      background: transparent;
+    }
+    .ant-table-tbody > tr.ant-table-row:hover > td {
+      background: transparent;
+      border: 1px solid rgba($dashBgColor, .4);
+    }
+    .ant-table-tbody {
+      > tr {
+        .ant-table-placeholder {
+          &:hover {
+            > td {
+              background: transparent;
+            }
+          }
+        }
+      }
+    }
+    .ant-empty-normal {
+      margin: 10px 0;
+      color: $white-color;
+    }
+  }
+}
+
+.packages {
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $white-color;
+    >div {
+      color: $white-color;
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $white-color;
+        margin-bottom: 0;
+      }
+      h3 {
+        font-weight: 400;
+        font-size: 1rem;
+        margin-bottom: 0;
+        color: $white-color;
+      }
+      img {
+        object-fit: contain;
+        height: 100%;
+      }
+    }
+  }
+}
+
+// light style
+.light {
+  background: $dashLightBgColor;
+  color: $black-color;
+  transition: ease all 0.5s;
+
+  h3 {
+    color: $black-color;
+  }
+
+  li,
+  span {
+    color: $black-color;
+  }
+}

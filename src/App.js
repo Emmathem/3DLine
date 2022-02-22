@@ -10,6 +10,7 @@ import AppGraphDetails from './components/AppGraphDetails';
 import { applyMiddleware, createStore } from 'redux';
 import Thunk from 'redux-thunk';
 import reducers from './store/reducers';
+import MailTMLogin from './components/MailTMLogin';
 
 const store = createStore(reducers, {}, applyMiddleware(Thunk));
 
@@ -19,9 +20,10 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           {/* <Transition slide="slide up"> */}
-          <Route exact path="/reports" component={ReportPage} />
           <Route path="/" exact component={HomeLandingPage} />
+          <Route exact path="/reports" component={ReportPage} />
           <Route path="/reports/graph-details" component={AppGraphDetails} />
+          <Route path="/mail/login" component={MailTMLogin} />
           {/* </Transition> */}
         </Switch>
       </BrowserRouter>

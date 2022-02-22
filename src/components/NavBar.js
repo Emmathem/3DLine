@@ -1,8 +1,10 @@
 import React from 'react';
 import { HomeOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 const NavBar = () => {
+  const history = useHistory();
   return (
     <header className="header">
       <div className="header__logo">
@@ -23,7 +25,9 @@ const NavBar = () => {
       </nav>
 
       <div className="rightNav">
-        <Button type="primary">Create Account</Button>
+        <Button type="primary" onClick={() => history.push('/mail/login')}>
+          Create Account
+        </Button>
       </div>
     </header>
   );
