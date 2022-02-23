@@ -5,6 +5,37 @@
   background: rgb(20, 200, 100);
 }
 
+.usercard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  &__imgholder {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid $moverYellow;
+    // background: $moverYellow;
+    // padding: 5px;
+    display: flex;
+    align-items: center;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__details {
+    margin-left: 5px;
+    &__name {
+      font-size: 13px;
+      color: $white-color;
+    }
+  }
+}
+
 .card-blue {
   background: #1890ff;
 }

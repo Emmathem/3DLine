@@ -9,7 +9,7 @@ const ReportLayout = ({ pageTitle, children }) => {
   return (
     <>
       <div className="layout">
-        <aside>
+        <aside className="aside-sidebar">
           <div className="aside-header" onClick={() => history.push('/')}>
             <HomeOutlined />
           </div>
@@ -24,12 +24,12 @@ const ReportLayout = ({ pageTitle, children }) => {
             </div>
           </div>
         </aside>
-        <main>
+        <div className="reportmain">
           <div className="main-title">
             <h3>{pageTitle}</h3>
           </div>
           {children}
-        </main>
+        </div>
       </div>
     </>
   );

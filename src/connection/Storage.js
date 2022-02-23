@@ -5,3 +5,7 @@ export function SAVE_TOKEN(value) {
 export function GET_TOKEN() {
   return localStorage.getItem('token');
 }
+
+export function REMOVE_TOKEN() {
+  return localStorage.removeItem('token');
+}

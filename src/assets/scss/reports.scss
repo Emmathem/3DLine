@@ -2,7 +2,7 @@
   display: flex;
 }
 
-aside {
+.aside-sidebar {
   max-width: 250px;
   width: 250px;
   background: rgb(2,0,36);
@@ -43,11 +43,10 @@ aside {
   }
 }
 
-main {
+.reportmain {
   position: relative;
-  margin: 2rem;
   width: 100%;
-  margin-left: 280px;
+  margin: 2rem 2rem 2rem 280px;
   transition: ease all 0.5s;
   .main-title {
     padding: 15px 2rem 0.5rem 0;

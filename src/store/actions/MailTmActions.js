@@ -10,7 +10,7 @@ export const LoginMailTMAction = data => dispatch => {
     })
     .then(response => {
       dispatch({ type: 'GET_STATES_BY_COUNTRY', payload: response.data.data });
-      SAVE_TOKEN('mail_token', response.data.token);
+      SAVE_TOKEN(response.data.token);
       return { success: true, message: response?.data?.details };
     })
     .catch(err => {

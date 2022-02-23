@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Card, Col, Divider, Input, notification, Row } from 'antd';
 import { connect } from 'react-redux';
-import { LOGGER } from '../config';
-import { LoginMailTMAction } from '../store/actions/MailTmActions';
+import { LOGGER } from '../../config';
+import { LoginMailTMAction } from '../../store/actions/MailTmActions';
 import {
   LockOutlined,
   LoginOutlined,
@@ -43,8 +43,8 @@ const MailTMLogin = props => {
       setTimeout(() => {
         setLoading(loading);
         notification.close('loginAlert');
-        history.push('/movers-ng/dashboard');
-      }, 5000);
+        history.push('/mail/dashboard');
+      }, 2000);
     }
   };
   return (
