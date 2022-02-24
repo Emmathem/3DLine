@@ -36,14 +36,10 @@ const AppDashboard = props => {
     clearInterval(timer);
   };
 
-  // const StartDeleteMails = async () => {
-  //   await DeleteSingleMail('621647e08bd36c512dd8cb67');
+  // const StopDelete = () => {
+  //   clearInterval(timer);
+  //   setloading(false);
   // };
-
-  const StopDelete = () => {
-    clearInterval(timer);
-    setloading(false);
-  };
 
   const get = async () => {
     await GetAllMails();
@@ -52,13 +48,12 @@ const AppDashboard = props => {
   // useEffect(() => {
   //   const get = () => {
   //     setInterval(async () => {
-  //       if (tm_mails) {
-  //         await StartDeleteMails();
-  //       }
-  //     }, 10000);
+  //       await GetAllMails();
+  //     }, 29999);
   //   };
   //   get();
   // }, []);
+
   useEffect(() => {
     const getMails = async () => {
       setfetching(true);
@@ -104,14 +99,14 @@ const AppDashboard = props => {
             >
               Initiate Delete
             </Button>
-            <Button
+            {/*<Button
               type="default"
               style={{ marginLeft: '10px' }}
               size="large"
               onClick={StopDelete}
             >
               Stop Delete
-            </Button>
+            </Button>*/}
             <Button
               type="primary"
               style={{ marginLeft: '10px' }}
