@@ -19,8 +19,7 @@ export const LoginMailTMAction = data => dispatch => {
     });
 };
 
-export const GetAllMails = payload => dispatch => {
-  console.log(payload);
+export const GetAllMails = () => dispatch => {
   return axios
     .get(`https://api.mail.tm/messages`, {
       headers: {

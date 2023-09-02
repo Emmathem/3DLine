@@ -17,6 +17,7 @@ const AppDashboard = props => {
   const [loading, setloading] = useState(false);
 
   const StartDeleteMails = async () => {
+    if (tm_mails?.length === 0) return;
     setloading(true);
     for (let i = 0; i < 5; i++) {
       const tm_id = tm_mails[i].id;
@@ -77,6 +78,10 @@ const AppDashboard = props => {
           <div style={{ marginBottom: '10px' }}>
             <Tag>Total: {tm_count}</Tag>
           </div>
+        </Col>
+      </Row>
+      <Row gutter={[16, 16]}>
+        <Col xs={24} xl={18} lg={18}>
           <Card>
             <h3>Mails Record</h3>
             <MailTableRecord data={tm_mails} fetching={fetching} />
