@@ -60,3 +60,23 @@ export const DeleteSingleMail = mail_id => dispatch => {
       return { success: false, message: err?.response?.data?.message };
     });
 };
+
+export const GetAmazonRecord = () => dispatch => {
+  return axios
+    .get(`https://iqsa.s3.amazonaws.com/2745696029_security_groups_scan.json`, {
+      headers: {
+        'content-type': 'text/xml;charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+        'x-amzn-requestid': '8f333f4b-7f42-4632-b821-24b77b3058a6',
+        // Authorization: `Bearer ${GET_TOKEN()}`,
+      },
+    })
+    .then(response => {
+      console.log(response, 'amza');
+      dispatch();
+      return { success: true, message: response?.data?.details };
+    })
+    .catch(err => {
+      return { success: false, message: err?.response?.data?.message };
+    });
+};

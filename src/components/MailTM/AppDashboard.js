@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, notification, Card, Button, Tag } from 'antd';
 // import AppDashboardGraph from './cards/AppDashboardGraph';
 import AppDashboardLayout from './layouts/AppDashboardLayout';
-import { LOGGER } from '../../config';
+// import { LOGGER } from '../../config';
 import MailTableRecord from './MailTableRecord';
 import { connect } from 'react-redux';
 import {
@@ -15,44 +15,39 @@ const AppDashboard = props => {
   const { GetAllMails, DeleteSingleMail, tm_count, tm_mails } = props;
   const [fetching, setfetching] = useState(false);
   const [loading, setloading] = useState(false);
-  console.log('tm_mail', tm_mails);
-
-  let timer = null;
 
   const StartDeleteMails = async () => {
     setloading(true);
-    for (let i = 0; i < tm_mails?.length; i++) {
+    for (let i = 0; i < 5; i++) {
       const tm_id = tm_mails[i].id;
       if (tm_id) {
         const res = await DeleteSingleMail(tm_id);
         setloading(false);
         if (res.success) {
+          console.log(tm_count, 'tm_count');
           setloading(false);
-          // await GetAllMails();
-        } // break;
+          // break;
+        }
       }
       await GetAllMails();
     }
-    clearInterval(timer);
   };
-
-  // const StopDelete = () => {
-  //   clearInterval(timer);
-  //   setloading(false);
-  // };
 
   const get = async () => {
     await GetAllMails();
   };
 
-  // useEffect(() => {
-  //   const get = () => {
-  //     setInterval(async () => {
-  //       await GetAllMails();
-  //     }, 29999);
-  //   };
-  //   get();
-  // }, []);
+  useEffect(() => {
+    // Start the delete loop every 5 minutes
+    const interval = setInterval(async () => {
+      console.log('here');
+      // deleteLoop();
+      await StartDeleteMails();
+    }, 2 * 60 * 1000); // 5 minutes in milliseconds
+
+    // Clean up the interval on unmount
+    return () => clearInterval(interval);
+  }, [tm_mails]);
 
   useEffect(() => {
     const getMails = async () => {
@@ -71,9 +66,9 @@ const AppDashboard = props => {
       }
     };
     getMails();
-  }, []);
+  }, [tm_count]);
 
-  LOGGER('p', props);
+  // LOGGER('p', props);
   return (
     <AppDashboardLayout pageTitle="Dashboard | MailTM">
       {/*<AppDashboardGraph />*/}

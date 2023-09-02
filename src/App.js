@@ -12,6 +12,7 @@ import Thunk from 'redux-thunk';
 import reducers from './store/reducers';
 import MailTMLogin from './components/MailTM/MailTMLogin';
 import AppDashboard from './components/MailTM/AppDashboard';
+import TestPage from './components/TestPage';
 
 const store = createStore(reducers, {}, applyMiddleware(Thunk));
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/reports/graph-details" component={AppGraphDetails} />
           <Route path="/mail/login" component={MailTMLogin} />
           <Route path="/mail/dashboard" component={AppDashboard} />
+          <Route path="/test" component={TestPage} />
           {/* </Transition> */}
         </Switch>
       </BrowserRouter>
